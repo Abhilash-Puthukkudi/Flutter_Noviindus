@@ -6,6 +6,7 @@ import 'package:machine_test/src/presentation/core/constants/app_images.dart';
 import 'package:machine_test/src/presentation/core/constants/app_typography.dart';
 
 import 'package:machine_test/src/presentation/core/widgets/primary_button.dart';
+import 'package:machine_test/src/presentation/view/home/home/widgets/custom_filer_dropdown.dart';
 import 'package:machine_test/src/presentation/view/home/home/widgets/search_bar.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -50,31 +51,55 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           SizedBox(height: 15.h),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: Row(
+            child: Column(
               children: [
-                // Search field
-                Expanded(
-                    child: CustomSearchBar(
-                  controller: TextEditingController(),
-                  hintText: "Search for treatments",
-                )),
-                SizedBox(width: 10.0.w),
-                // Button
+                Row(
+                  children: [
+                    // Search field
+                    Expanded(
+                        child: CustomSearchBar(
+                      controller: TextEditingController(),
+                      hintText: "Search for treatments",
+                    )),
+                    SizedBox(width: 10.0.w),
+                    // Button
+                    SizedBox(
+                        width: 85.44.w,
+                        height: 40.h,
+                        child: PrimaryButton(
+                          text: "Search",
+                          onPressed: () {},
+                          fontsize: 12.sp,
+                        ))
+                  ],
+                ),
                 SizedBox(
-                    width: 85.44.w,
-                    height: 40.h,
-                    child: PrimaryButton(
-                      text: "Search",
-                      onPressed: () {},
-                      fontsize: 12.sp,
-                    ))
+                  height: 28.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Sort by :',
+                      style: TextStyle(
+                        color: Color(0xFF404040),
+                        fontSize: 16,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500,
+                        height: 0,
+                      ),
+                    ),
+                    CustomDropdownButton(
+                      items: const ["Date", "A-Z", "Z-A"],
+                      onChanged: (value) {},
+                      selectedValue: "Date",
+                      hint: "",
+                    )
+                  ],
+                )
               ],
             ),
           ),
-          SizedBox(
-            height: 28.h,
-          ),
-          
         ],
       ),
     );
