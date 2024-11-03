@@ -6,9 +6,9 @@ import 'package:machine_test/src/application/home/home_bloc.dart';
 import 'package:machine_test/src/presentation/core/constants/app_colors.dart';
 import 'package:machine_test/src/presentation/core/widgets/logo_loder.dart';
 import 'package:machine_test/src/presentation/core/widgets/primary_button.dart';
-import 'package:machine_test/src/presentation/view/home/home/widgets/appbar.dart';
-import 'package:machine_test/src/presentation/view/home/home/widgets/empty_place_holder.dart';
-import 'package:machine_test/src/presentation/view/home/home/widgets/patient_tile.dart';
+import 'package:machine_test/src/presentation/view/home/home_screen/widgets/appbar.dart';
+import 'package:machine_test/src/presentation/view/home/home_screen/widgets/empty_place_holder.dart';
+import 'package:machine_test/src/presentation/view/home/home_screen/widgets/patient_tile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

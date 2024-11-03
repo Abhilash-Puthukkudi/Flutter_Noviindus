@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:machine_test/app/router/router_constants.dart';
 import 'package:machine_test/src/presentation/view/auth/login_screen/login_screen.dart';
 import 'package:machine_test/src/presentation/view/auth/splash_screen/splash_screen.dart';
-import 'package:machine_test/src/presentation/view/home/home/home_screen.dart';
+import 'package:machine_test/src/presentation/view/home/home_screen/home_screen.dart';
 
 enum PageRouteAnimation { fade, scale, rotate, slide, slideBottomTop }
 

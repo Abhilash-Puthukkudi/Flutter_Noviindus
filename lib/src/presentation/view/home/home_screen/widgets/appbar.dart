@@ -6,8 +6,8 @@ import 'package:machine_test/src/presentation/core/constants/app_images.dart';
 import 'package:machine_test/src/presentation/core/constants/app_typography.dart';
 
 import 'package:machine_test/src/presentation/core/widgets/primary_button.dart';
-import 'package:machine_test/src/presentation/view/home/home/widgets/custom_filer_dropdown.dart';
-import 'package:machine_test/src/presentation/view/home/home/widgets/search_bar.dart';
+import 'package:machine_test/src/presentation/view/home/home_screen/widgets/custom_filer_dropdown.dart';
+import 'package:machine_test/src/presentation/view/home/home_screen/widgets/search_bar.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});

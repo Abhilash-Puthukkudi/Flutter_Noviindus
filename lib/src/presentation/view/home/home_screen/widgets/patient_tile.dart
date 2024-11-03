@@ -31,12 +31,12 @@ class PatientTile extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildTitleRow(patientNo, 'Vikram Singh'),
+            _buildTitleRow(patientNo, patient.name ?? "n/a"),
             SizedBox(height: 10.h),
             Padding(
               padding: EdgeInsets.only(left: 20.w, right: 12.w),
               child: _buildText(
-                'Couple Combo Package (Rejuven...hghghghghghgh',
+                patient.patientdetailsSet?.map((details) => details.treatmentName).join(', ') ?? '',
                 color: const Color(0xFF006837),
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w300,
