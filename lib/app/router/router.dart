@@ -14,14 +14,10 @@ class AppRouter {
         return buildPageRoute(const SplashScreen(), PageRouteAnimation.slide);
 
       case RouterConstants.loginRoute:
-        return MaterialPageRoute<LoginScreen>(
-          builder: (_) => const LoginScreen(),
-        );
+        return buildPageRoute(const LoginScreen(), PageRouteAnimation.fade);
 
       case RouterConstants.homeRoute:
-        return MaterialPageRoute<HomeScreen>(
-          builder: (_) => const HomeScreen(),
-        );
+        return buildPageRoute(const HomeScreen(), PageRouteAnimation.slide);
 
       default:
         return MaterialPageRoute<Scaffold>(
@@ -64,7 +60,7 @@ class AppRouter {
             child: child,
             position: Tween(begin: const Offset(1.0, 0.0), end: const Offset(0.0, 0.0)).animate(anim),
           ),
-          transitionDuration: const Duration(milliseconds: 350),
+          transitionDuration: const Duration(milliseconds: 450),
         );
       } else if (pageRouteAnimation == PageRouteAnimation.slideBottomTop) {
         return PageRouteBuilder(

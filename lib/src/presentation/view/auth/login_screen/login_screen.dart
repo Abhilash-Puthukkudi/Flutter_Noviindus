@@ -5,6 +5,7 @@ import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:machine_test/app/router/router_constants.dart';
 import 'package:machine_test/src/application/auth/auth_bloc.dart';
 import 'package:machine_test/src/application/core/status.dart';
+import 'package:machine_test/src/application/home/home_bloc.dart';
 import 'package:machine_test/src/domain/core/models/pm_models/pm_login_model/pm_login_model.dart';
 import 'package:machine_test/src/presentation/core/constants/app_colors.dart';
 import 'package:machine_test/src/presentation/core/constants/app_helper.dart';
@@ -32,6 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
       listenWhen: (previous, current) => previous.loginStatus != current.loginStatus,
       listener: (context, state) {
         if (state.loginStatus is StatusSuccess) {
+          context.read<HomeBloc>().add(LoadPatientsEvent());
           Navigator.pushNamed(context, RouterConstants.homeRoute);
         } else if (state.loginStatus is StatusFailure) {
           final status = state.loginStatus as StatusFailure;

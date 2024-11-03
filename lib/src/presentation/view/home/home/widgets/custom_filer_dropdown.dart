@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:machine_test/src/presentation/core/constants/app_colors.dart';
+import 'package:machine_test/src/presentation/core/constants/app_typography.dart';
 
 class CustomDropdownButton extends StatelessWidget {
   final List<String> items;
@@ -26,13 +29,18 @@ class CustomDropdownButton extends StatelessWidget {
             width: 1,
             color: Colors.black.withOpacity(0.3),
           ),
-          borderRadius: BorderRadius.circular(33),
+          borderRadius: BorderRadius.circular(33.r),
         ),
       ),
       child: DropdownButton<String>(
+        menuWidth: 140.w,
+        style: AppTypography.poppinsRegular,
+        borderRadius: BorderRadius.circular(15.r),
         isExpanded: true,
+        dropdownColor: AppColors.white,
+        elevation: 1,
         underline: const SizedBox.shrink(),
-        icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
+        icon: const Icon(Icons.keyboard_arrow_down, color: AppColors.primaryColor),
         hint: Text(
           hint,
           style: TextStyle(
@@ -46,7 +54,7 @@ class CustomDropdownButton extends StatelessWidget {
             value: value,
             child: Text(
               value,
-              style: const TextStyle(fontSize: 14),
+              style: AppTypography.poppinsRegular.copyWith(fontSize: 13.sp),
             ),
           );
         }).toList(),

@@ -44,9 +44,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       );
 
       emit(
-        state.copyWith(
-          loginStatus: StatusLoading(),
-        ),
+        state.copyWith(loginStatus: StatusLoading(), loginModel: const LoginModel()),
       );
 
       final res = await _authRespository.login(loginModel: event.loginModel);

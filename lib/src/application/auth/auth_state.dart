@@ -19,7 +19,12 @@ class AuthState extends Equatable {
         splashStatus,
       ];
 
-  AuthState copyWith({Status? loginStatus, Status? logoutStatus, LoginModel? loginModel, Status? splashStatus, Status? splashImgStatus}) {
+  AuthState copyWith(
+      {Status? loginStatus,
+      Status? logoutStatus,
+      LoginModel? loginModel,
+      Status? splashStatus,
+      Status? splashImgStatus}) {
     return AuthState(
       splashStatus: splashStatus ?? this.splashStatus,
       logoutStatus: logoutStatus ?? this.logoutStatus,

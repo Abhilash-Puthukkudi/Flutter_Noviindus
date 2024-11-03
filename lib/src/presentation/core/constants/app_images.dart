@@ -5,4 +5,5 @@ class AppImages {
   static const aeroIcon = 'assets/images/ic_aero.png';
   static const bellIcon = 'assets/images/ic_bell.png';
   static const searchIcon = 'assets/images/ic_search.png';
+  static const noDataIcon = 'assets/images/ic_note.png';
 }

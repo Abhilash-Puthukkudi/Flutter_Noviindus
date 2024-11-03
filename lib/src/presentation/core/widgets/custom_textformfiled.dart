@@ -58,7 +58,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 decoration: BoxDecoration(
                   color: AppColors.textFiledColor,
                   border: Border.all(
-                    color: errorText == null ? Colors.black.withOpacity(0.1) : Colors.red,
+                    color: errorText == null
+                        ? Colors.black.withOpacity(0.1)
+                        : Colors.red,
                     width: 0.85.w,
                   ),
                   borderRadius: BorderRadius.circular(8.53),

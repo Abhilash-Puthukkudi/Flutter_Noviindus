@@ -22,7 +22,7 @@ class CustomSearchBar extends StatelessWidget {
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           side: BorderSide(
-            width: 1,
+            width: 1.w,
             color: Colors.black.withOpacity(0.3),
           ),
           borderRadius: BorderRadius.circular(8),
@@ -46,7 +46,7 @@ class CustomSearchBar extends StatelessWidget {
               ),
               controller: controller,
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(vertical: 9.h),
+                contentPadding: EdgeInsets.symmetric(vertical: 7.h),
                 hintText: hintText,
                 hintStyle: AppTypography.poppinsRegular.copyWith(
                   color: AppColors.borderColor,

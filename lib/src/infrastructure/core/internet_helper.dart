@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 import 'package:machine_test/src/domain/core/pref_key/preference_key.dart';
@@ -23,29 +24,13 @@ class InternetHelper extends IBaseClient {
     Map<String, String>? headers,
   }) async {
     try {
-      final response =
-          await client.post(Uri.parse(url), body: body, headers: {});
-      log("------------------------------------------------");
-      log("URL       : $url");
-      log("RESPONSE  : ${response.body}");
-      log("STATUS CODE : ${response.statusCode}");
-      log("------------------------------------------------");
-      if (response.statusCode.toInt() == 404 ||
-          response.statusCode.toInt() == 429) {
-        final res = jsonDecode(response.body.toString());
-        throw ApiFailure(res['message']);
-      }
-      if (response.statusCode.toInt() == 409) {
-        final res = jsonDecode(response.body.toString());
-        throw ApiFailure(res['message']);
-      }
-      if (response.statusCode.toInt() == 401) {
-        final res = jsonDecode(response.body.toString());
-        throw ApiFailure(res['message']);
-      }
-      if (response.statusCode.toInt() == 403) {
-        final res = jsonDecode(response.body.toString());
-        throw ApiFailure(res['message'][0]);
+      final response = await client.post(Uri.parse(url), body: body, headers: {});
+      if (kDebugMode) {
+        log("------------------------------------------------");
+        log("URL       : $url");
+        log("RESPONSE  : ${response.body}");
+        log("STATUS CODE : ${response.statusCode}");
+        log("------------------------------------------------");
       }
 
       if (response.body.isEmpty) {
@@ -84,8 +69,7 @@ class InternetHelper extends IBaseClient {
   }
 
   @override
-  Future<http.Response> get(
-      {required String url, Map<String, String>? header}) async {
+  Future<http.Response> get({required String url, Map<String, String>? header}) async {
     try {
       final response = await client.get(Uri.parse(url), headers: header);
       if (response.body.isEmpty) {
@@ -106,26 +90,22 @@ class InternetHelper extends IBaseClient {
   }
 
   @override
-  Future<http.Response> getWithProfile(
-      {required String url, Map<String, String>? headers}) async {
+  Future<http.Response> getWithProfile({required String url, Map<String, String>? headers}) async {
     try {
-      final accessToken =
-          await PreferenceHelper().getString(key: AppPrefeKeys.accessToken);
+      final accessToken = await PreferenceHelper().getString(key: AppPrefeKeys.accessToken);
       final defaultheader = {
         'Authorization': 'Bearer $accessToken',
       };
-      final Map<String, String> combainedHeaders = {
-        ...defaultheader,
-        if (headers != null) ...headers
-      };
+      final Map<String, String> combainedHeaders = {...defaultheader, if (headers != null) ...headers};
       log("URL       : $url");
-      final response =
-          await client.get(Uri.parse(url), headers: combainedHeaders);
-      log("------------------------------------------------");
-      log("URL       : $url");
-      log("RESPONSE  : ${response.body}");
-      log("STATUS CODE : ${response.statusCode}");
-      log("------------------------------------------------");
+      final response = await client.get(Uri.parse(url), headers: combainedHeaders);
+      if (kDebugMode) {
+        log("------------------------------------------------");
+        log("URL       : $url");
+        log("RESPONSE  : ${response.body}");
+        log("STATUS CODE : ${response.statusCode}");
+        log("------------------------------------------------");
+      }
 
       if (response.body.isEmpty) {
         throw ApiFailure('no data found');
@@ -146,43 +126,20 @@ class InternetHelper extends IBaseClient {
   }
 
   @override
-  Future<http.Response> postWithProfile(
-      {required String url,
-      required Map<String, dynamic> body,
-      Map<String, String>? headers}) async {
+  Future<http.Response> postWithProfile({required String url, required Map<String, dynamic> body, Map<String, String>? headers}) async {
     try {
-      final accessToken =
-          await PreferenceHelper().getString(key: AppPrefeKeys.accessToken);
+      final accessToken = await PreferenceHelper().getString(key: AppPrefeKeys.accessToken);
       final defaultheader = {
         'Authorization': 'Bearer $accessToken',
       };
-      final Map<String, String> combainedHeaders = {
-        ...defaultheader,
-        if (headers != null) ...headers
-      };
-      final response = await client.post(Uri.parse(url),
-          body: body, headers: combainedHeaders);
-      log("------------------------------------------------");
-      log("URL       : $url");
-      log("RESPONSE  : ${response.body}");
-      log("STATUS CODE : ${response.statusCode}");
-      log("------------------------------------------------");
-      if (response.statusCode.toInt() == 404 ||
-          response.statusCode.toInt() == 429) {
-        final res = jsonDecode(response.body.toString());
-        throw ApiFailure(res['message']);
-      }
-      if (response.statusCode.toInt() == 409) {
-        final res = jsonDecode(response.body.toString());
-        throw ApiFailure(res['message']);
-      }
-      if (response.statusCode.toInt() == 401) {
-        final res = jsonDecode(response.body.toString());
-        throw ApiFailure(res['message']);
-      }
-      if (response.statusCode.toInt() == 403) {
-        final res = jsonDecode(response.body.toString());
-        throw ApiFailure(res['message'][0]);
+      final Map<String, String> combainedHeaders = {...defaultheader, if (headers != null) ...headers};
+      final response = await client.post(Uri.parse(url), body: body, headers: combainedHeaders);
+      if (kDebugMode) {
+        log("------------------------------------------------");
+        log("URL       : $url");
+        log("RESPONSE  : ${response.body}");
+        log("STATUS CODE : ${response.statusCode}");
+        log("------------------------------------------------");
       }
 
       if (response.body.isEmpty) {

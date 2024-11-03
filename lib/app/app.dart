@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:machine_test/src/application/auth/auth_bloc.dart';
 import 'package:machine_test/src/application/home/home_bloc.dart';
+
 import 'package:machine_test/src/presentation/core/constants/app_colors.dart';
 
 class MyApp extends StatelessWidget {

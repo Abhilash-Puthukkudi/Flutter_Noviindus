@@ -16,7 +16,8 @@ class PrivacyPolicy extends StatelessWidget {
         TextSpan(
           children: [
             CustomTextSpanBuilder.buildTextSpan(
-              text: 'By creating or logging into an account you are agreeing with our',
+              text:
+                  'By creating or logging into an account you are agreeing with our',
             ),
             CustomTextSpanBuilder.buildTextSpan(
               text: 'Terms and Conditions',
@@ -25,7 +26,8 @@ class PrivacyPolicy extends StatelessWidget {
             CustomTextSpanBuilder.buildTextSpan(
               text: ' and ',
             ),
-            CustomTextSpanBuilder.buildTextSpan(text: 'Privacy Policy.', color: const Color(0xFF0028FC)),
+            CustomTextSpanBuilder.buildTextSpan(
+                text: 'Privacy Policy.', color: const Color(0xFF0028FC)),
           ],
         ),
         textAlign: TextAlign.center,
