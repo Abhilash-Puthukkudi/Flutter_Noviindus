@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:machine_test/app/injector/injector.dart';
 import 'package:machine_test/app/router/router.dart';
-import 'package:machine_test/app/router/router_constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:machine_test/src/application/auth/auth_bloc.dart';
@@ -46,7 +45,6 @@ class MyApp extends StatelessWidget {
               useMaterial3: true,
               scaffoldBackgroundColor: AppColors.white,
             ),
-            initialRoute: RouterConstants.splashRoute,
             onGenerateRoute: AppRouter.generateRoute,
             debugShowCheckedModeBanner: false,
           ),

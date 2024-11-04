@@ -4,19 +4,23 @@ import 'package:machine_test/src/presentation/core/constants/app_colors.dart';
 import 'package:machine_test/src/presentation/core/constants/app_typography.dart';
 
 class CustomTextFormField extends StatefulWidget {
-  final bool obscureText;
+  final bool obscureText, readOnly;
   final TextEditingController controller;
-  final String labelText;
+  final String? labelText;
   final String hintText;
   final String? Function(String?)? validator;
-
+  final Widget? suffixIcon;
+  final VoidCallback? onTap;
   const CustomTextFormField({
     super.key,
-    required this.labelText,
+    this.labelText,
     required this.hintText,
     required this.controller,
     this.validator,
+    this.readOnly = false,
     this.obscureText = false,
+    this.suffixIcon,
+    this.onTap,
   });
 
   @override
@@ -47,7 +51,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                widget.labelText,
+                widget.labelText ?? "",
                 style: AppTypography.poppinsRegular.copyWith(
                   fontSize: 16.sp,
                 ),
@@ -58,25 +62,25 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 decoration: BoxDecoration(
                   color: AppColors.textFiledColor,
                   border: Border.all(
-                    color: errorText == null
-                        ? Colors.black.withOpacity(0.1)
-                        : Colors.red,
+                    color: errorText == null ? Colors.black.withOpacity(0.1) : Colors.red,
                     width: 0.85.w,
                   ),
                   borderRadius: BorderRadius.circular(8.53),
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: TextFormField(
+                  onTap: widget.onTap,
+                  readOnly: widget.readOnly,
                   obscureText: widget.obscureText,
                   controller: widget.controller,
                   onChanged: (value) => _validate(),
                   decoration: InputDecoration(
+                    suffixIconConstraints: BoxConstraints(maxHeight: 20.h, maxWidth: 20.w),
+                    suffixIcon: widget.suffixIcon,
                     hintText: widget.hintText,
-                    hintStyle: TextStyle(
+                    hintStyle: AppTypography.poppinsLight.copyWith(
                       color: Colors.black.withOpacity(0.4),
-                      fontSize: 14,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w300,
+                      fontSize: 14.sp,
                     ),
                     border: InputBorder.none,
                   ),

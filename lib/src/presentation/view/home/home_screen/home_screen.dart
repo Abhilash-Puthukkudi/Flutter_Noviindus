@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:machine_test/app/router/router_constants.dart';
 import 'package:machine_test/src/application/core/status.dart';
 import 'package:machine_test/src/application/home/home_bloc.dart';
 import 'package:machine_test/src/presentation/core/constants/app_colors.dart';
@@ -53,13 +54,16 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               width: 350.w,
               height: 50.h,
-              child: SafeArea(
-                child: PrimaryButton(
-                  onPressed: () {},
-                  text: "Register Now",
-                ),
+              child: PrimaryButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, RouterConstants.registerRoute);
+                },
+                text: "Register Now",
               ),
             ),
+            SizedBox(
+              height: 10.h,
+            )
           ],
         ),
       ),

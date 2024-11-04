@@ -12,6 +12,7 @@ class AppColors {
   static const scaffoldColor = Colors.white;
   static const borderColor = Colors.grey;
   static const textFiledColor = Color(0x3FD9D9D9);
+  static const lightGreen = Color(0x4C389A48);
 
   static const white = Colors.white;
   static const black = Colors.black;

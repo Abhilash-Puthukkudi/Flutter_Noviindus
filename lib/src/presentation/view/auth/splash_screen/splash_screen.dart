@@ -18,8 +18,7 @@ class SplashScreen extends StatelessWidget {
       AppImages.loginBackground,
     ]);
     return BlocListener<AuthBloc, AuthState>(
-      listenWhen: (previous, current) =>
-          previous.splashStatus != current.splashStatus,
+      listenWhen: (previous, current) => previous.splashStatus != current.splashStatus,
       listener: (context, state) {
         if (state.splashStatus is StatusSuccess) {
           Navigator.pushNamedAndRemoveUntil(
@@ -31,10 +30,12 @@ class SplashScreen extends StatelessWidget {
       },
       child: Scaffold(
           body: Container(
+        width: ScreenUtil().screenWidth,
+        height: ScreenUtil().screenHeight,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(AppImages.splashBackground),
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
               AppColors.splashFilterColor,
               BlendMode.darken,

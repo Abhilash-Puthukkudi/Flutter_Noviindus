@@ -8,6 +8,8 @@ class PrimaryButton extends StatelessWidget {
   final Widget? child;
   final VoidCallback onPressed;
   final double? fontsize;
+  final Color? color;
+  final TextStyle? fontStyle;
 
   const PrimaryButton({
     super.key,
@@ -15,6 +17,8 @@ class PrimaryButton extends StatelessWidget {
     this.child,
     this.fontsize,
     required this.onPressed,
+    this.color,
+    this.fontStyle,
   });
 
   @override
@@ -23,7 +27,7 @@ class PrimaryButton extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          backgroundColor: AppColors.primaryColor,
+          backgroundColor: color ?? AppColors.primaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.52.r),
           ),
@@ -32,11 +36,12 @@ class PrimaryButton extends StatelessWidget {
           child: child ??
               Text(
                 text ?? '',
-                style: AppTypography.poppinsSemiBold.copyWith(
-                  color: Colors.white,
-                  fontSize: fontsize ?? 17.sp,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: fontStyle ??
+                    AppTypography.poppinsSemiBold.copyWith(
+                      color: Colors.white,
+                      fontSize: fontsize ?? 17.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
               ),
         ),
       ),
