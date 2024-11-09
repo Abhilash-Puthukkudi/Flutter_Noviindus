@@ -8,12 +8,11 @@ class RadioButtonWidget extends StatelessWidget {
   final List<String> options;
   final ValueNotifier<String?> selectedValueNotifier;
 
-  RadioButtonWidget({
-    super.key,
-    required this.options,
-    required this.labelText,
-    required this.selectedValueNotifier
-  }) ;
+  RadioButtonWidget(
+      {super.key,
+      required this.options,
+      required this.labelText,
+      required this.selectedValueNotifier});
 
   @override
   Widget build(BuildContext context) {

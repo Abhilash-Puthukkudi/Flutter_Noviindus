@@ -23,7 +23,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     add(SplashEvent());
   }
 
-  FutureOr<void> _splashEvent(SplashEvent event, Emitter<AuthState> emit) async {
+  FutureOr<void> _splashEvent(
+      SplashEvent event, Emitter<AuthState> emit) async {
     emit(
       state.copyWith(
         splashStatus: const StatusInitial(),
@@ -40,16 +41,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   FutureOr<void> _login(LoginEvent event, Emitter<AuthState> emit) async {
     try {
       emit(
-        state.copyWith(loginStatus: const StatusInitial(), loginModel: const LoginModel()),
+        state.copyWith(
+            loginStatus: const StatusInitial(), loginModel: const LoginModel()),
       );
 
       emit(
-        state.copyWith(loginStatus: StatusLoading(), loginModel: const LoginModel()),
+        state.copyWith(
+            loginStatus: StatusLoading(), loginModel: const LoginModel()),
       );
 
       final res = await _authRespository.login(loginModel: event.loginModel);
       if (res.status ?? false) {
-        PreferenceHelper().setString(key: AppPrefeKeys.accessToken, value: res.token ?? "");
+        PreferenceHelper()
+            .setString(key: AppPrefeKeys.accessToken, value: res.token ?? "");
         emit(state.copyWith(
           loginStatus: StatusSuccess(),
           loginModel: res,

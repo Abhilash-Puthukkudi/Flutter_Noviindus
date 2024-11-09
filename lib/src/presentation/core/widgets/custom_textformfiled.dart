@@ -11,6 +11,7 @@ class CustomTextFormField extends StatefulWidget {
   final String? Function(String?)? validator;
   final Widget? suffixIcon;
   final VoidCallback? onTap;
+  final TextInputType? textInputType;
   const CustomTextFormField({
     super.key,
     this.labelText,
@@ -21,6 +22,7 @@ class CustomTextFormField extends StatefulWidget {
     this.obscureText = false,
     this.suffixIcon,
     this.onTap,
+    this.textInputType,
   });
 
   @override
@@ -69,6 +71,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: TextFormField(
+                  keyboardType: widget.textInputType,
                   onTap: widget.onTap,
                   readOnly: widget.readOnly,
                   obscureText: widget.obscureText,

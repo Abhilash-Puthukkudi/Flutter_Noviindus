@@ -18,7 +18,8 @@ class SplashScreen extends StatelessWidget {
       AppImages.loginBackground,
     ]);
     return BlocListener<AuthBloc, AuthState>(
-      listenWhen: (previous, current) => previous.splashStatus != current.splashStatus,
+      listenWhen: (previous, current) =>
+          previous.splashStatus != current.splashStatus,
       listener: (context, state) {
         if (state.splashStatus is StatusSuccess) {
           Navigator.pushNamedAndRemoveUntil(

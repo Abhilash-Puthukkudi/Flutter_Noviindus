@@ -13,7 +13,8 @@ class CustomTimeField extends StatelessWidget {
     return Container(
       width: 170.w, // Using .w for responsive width
       height: 50.h, // Using .h for responsive height
-      padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 13.h), // Responsive padding
+      padding: EdgeInsets.symmetric(
+          horizontal: 15.w, vertical: 13.h), // Responsive padding
       decoration: ShapeDecoration(
         color: const Color(0x3FD9D9D9),
         shape: RoundedRectangleBorder(
@@ -21,7 +22,8 @@ class CustomTimeField extends StatelessWidget {
             width: 0.85.w, // Responsive border width
             color: Colors.black.withOpacity(0.1),
           ),
-          borderRadius: BorderRadius.circular(8.53.r), // Responsive border radius
+          borderRadius:
+              BorderRadius.circular(8.53.r), // Responsive border radius
         ),
       ),
       child: Row(

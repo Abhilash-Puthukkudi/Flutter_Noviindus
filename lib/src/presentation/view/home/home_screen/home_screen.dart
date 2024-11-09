@@ -27,7 +27,8 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             BlocBuilder<HomeBloc, HomeState>(
-              buildWhen: (previous, current) => previous.loadPatientStatus != current.loadPatientStatus,
+              buildWhen: (previous, current) =>
+                  previous.loadPatientStatus != current.loadPatientStatus,
               builder: (context, state) {
                 if (state.loadPatientStatus is StatusLoading) {
                   return const Expanded(child: Center(child: LogoLoder()));

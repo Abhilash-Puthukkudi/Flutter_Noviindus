@@ -24,7 +24,8 @@ class InternetHelper extends IBaseClient {
     Map<String, String>? headers,
   }) async {
     try {
-      final response = await client.post(Uri.parse(url), body: body, headers: {});
+      final response =
+          await client.post(Uri.parse(url), body: body, headers: {});
       if (kDebugMode) {
         log("------------------------------------------------");
         log("URL       : $url");
@@ -69,7 +70,8 @@ class InternetHelper extends IBaseClient {
   }
 
   @override
-  Future<http.Response> get({required String url, Map<String, String>? header}) async {
+  Future<http.Response> get(
+      {required String url, Map<String, String>? header}) async {
     try {
       final response = await client.get(Uri.parse(url), headers: header);
       if (response.body.isEmpty) {
@@ -90,15 +92,21 @@ class InternetHelper extends IBaseClient {
   }
 
   @override
-  Future<http.Response> getWithProfile({required String url, Map<String, String>? headers}) async {
+  Future<http.Response> getWithProfile(
+      {required String url, Map<String, String>? headers}) async {
     try {
-      final accessToken = await PreferenceHelper().getString(key: AppPrefeKeys.accessToken);
+      final accessToken =
+          await PreferenceHelper().getString(key: AppPrefeKeys.accessToken);
       final defaultheader = {
         'Authorization': 'Bearer $accessToken',
       };
-      final Map<String, String> combainedHeaders = {...defaultheader, if (headers != null) ...headers};
+      final Map<String, String> combainedHeaders = {
+        ...defaultheader,
+        if (headers != null) ...headers
+      };
       log("URL       : $url");
-      final response = await client.get(Uri.parse(url), headers: combainedHeaders);
+      final response =
+          await client.get(Uri.parse(url), headers: combainedHeaders);
       if (kDebugMode) {
         log("------------------------------------------------");
         log("URL       : $url");
@@ -126,14 +134,22 @@ class InternetHelper extends IBaseClient {
   }
 
   @override
-  Future<http.Response> postWithProfile({required String url, required Map<String, dynamic> body, Map<String, String>? headers}) async {
+  Future<http.Response> postWithProfile(
+      {required String url,
+      required Map<String, dynamic> body,
+      Map<String, String>? headers}) async {
     try {
-      final accessToken = await PreferenceHelper().getString(key: AppPrefeKeys.accessToken);
+      final accessToken =
+          await PreferenceHelper().getString(key: AppPrefeKeys.accessToken);
       final defaultheader = {
         'Authorization': 'Bearer $accessToken',
       };
-      final Map<String, String> combainedHeaders = {...defaultheader, if (headers != null) ...headers};
-      final response = await client.post(Uri.parse(url), body: body, headers: combainedHeaders);
+      final Map<String, String> combainedHeaders = {
+        ...defaultheader,
+        if (headers != null) ...headers
+      };
+      final response = await client.post(Uri.parse(url),
+          body: body, headers: combainedHeaders);
       if (kDebugMode) {
         log("------------------------------------------------");
         log("URL       : $url");

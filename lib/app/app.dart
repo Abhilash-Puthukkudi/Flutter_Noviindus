@@ -18,7 +18,9 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarIconBrightness: Brightness.light, statusBarColor: Colors.black));
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.light,
+        statusBarColor: Colors.black));
     return ScreenUtilInit(
       designSize: const Size(390, 844),
       minTextAdapt: true,
@@ -39,7 +41,8 @@ class MyApp extends StatelessWidget {
               );
             },
             theme: ThemeData(
-              textSelectionTheme: const TextSelectionThemeData(cursorColor: AppColors.primaryColor),
+              textSelectionTheme: const TextSelectionThemeData(
+                  cursorColor: AppColors.primaryColor),
               primaryColor: AppColors.primaryColor,
               appBarTheme: const AppBarTheme(color: AppColors.scaffoldColor),
               useMaterial3: true,

@@ -17,10 +17,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<LoadPatientsEvent>(_loadPatientList);
   }
 
-  FutureOr<void> _loadPatientList(LoadPatientsEvent event, Emitter<HomeState> emit) async {
+  FutureOr<void> _loadPatientList(
+      LoadPatientsEvent event, Emitter<HomeState> emit) async {
     try {
       emit(
-        state.copyWith(loadPatientStatus: const StatusInitial(), patientList: []),
+        state.copyWith(
+            loadPatientStatus: const StatusInitial(), patientList: []),
       );
 
       emit(
@@ -33,10 +35,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
       if (res.status ?? false) {
         emit(
-          state.copyWith(loadPatientStatus: StatusSuccess(), patientList: res.patient),
+          state.copyWith(
+              loadPatientStatus: StatusSuccess(), patientList: res.patient),
         );
       } else {
-        emit(state.copyWith(loadPatientStatus: StatusFailure(res.message ?? "Something Went Wrong!"), patientList: []));
+        emit(state.copyWith(
+            loadPatientStatus:
+                StatusFailure(res.message ?? "Something Went Wrong!"),
+            patientList: []));
       }
     } on ApiFailure catch (e) {
       emit(state.copyWith(loadPatientStatus: StatusFailure(e.error!)));

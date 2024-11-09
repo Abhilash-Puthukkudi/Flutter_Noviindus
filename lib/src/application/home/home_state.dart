@@ -15,6 +15,8 @@ class HomeState extends Equatable {
     Status? loadPatientStatus,
     List<Patient>? patientList,
   }) {
-    return HomeState(patientList: patientList ?? this.patientList, loadPatientStatus: loadPatientStatus ?? this.loadPatientStatus);
+    return HomeState(
+        patientList: patientList ?? this.patientList,
+        loadPatientStatus: loadPatientStatus ?? this.loadPatientStatus);
   }
 }

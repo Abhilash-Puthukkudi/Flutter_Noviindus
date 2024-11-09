@@ -40,7 +40,8 @@ class CustomDropdownButton extends StatelessWidget {
         dropdownColor: AppColors.white,
         elevation: 1,
         underline: const SizedBox.shrink(),
-        icon: const Icon(Icons.keyboard_arrow_down, color: AppColors.primaryColor),
+        icon: const Icon(Icons.keyboard_arrow_down,
+            color: AppColors.primaryColor),
         hint: Text(
           hint,
           style: TextStyle(

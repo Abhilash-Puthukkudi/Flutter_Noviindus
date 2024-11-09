@@ -5,13 +5,15 @@ import 'package:machine_test/src/presentation/core/constants/app_colors.dart';
 import 'package:machine_test/src/presentation/core/constants/app_typography.dart';
 
 class AppHelper {
-  static Future<void> precacheImages({required List<String> imgPaths, required BuildContext context}) async {
+  static Future<void> precacheImages(
+      {required List<String> imgPaths, required BuildContext context}) async {
     for (String image in imgPaths) {
       await precacheImage(AssetImage(image), context);
     }
   }
 
-  static void showCustomSnackBar(BuildContext context, String message, Color color) {
+  static void showCustomSnackBar(
+      BuildContext context, String message, Color color) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       duration: const Duration(seconds: 1),
       showCloseIcon: true,
@@ -37,7 +39,8 @@ class AppHelper {
         return Theme(
           data: ThemeData.light().copyWith(
             primaryColor: AppColors.primaryColor,
-            colorScheme: const ColorScheme.light(primary: AppColors.primaryColor),
+            colorScheme:
+                const ColorScheme.light(primary: AppColors.primaryColor),
           ),
           child: child ?? Container(),
         );
@@ -69,8 +72,10 @@ class AppHelper {
         return Theme(
           data: ThemeData.light().copyWith(
             primaryColor: AppColors.primaryColor,
-            colorScheme: const ColorScheme.light(primary: AppColors.primaryColor),
-            buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
+            colorScheme:
+                const ColorScheme.light(primary: AppColors.primaryColor),
+            buttonTheme:
+                const ButtonThemeData(textTheme: ButtonTextTheme.primary),
           ),
           child: child ?? Container(),
         );

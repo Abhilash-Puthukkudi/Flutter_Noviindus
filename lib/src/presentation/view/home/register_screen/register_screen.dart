@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:machine_test/src/domain/core/models/data_models/static_data.dart';
 import 'package:machine_test/src/presentation/core/constants/app_colors.dart';
 import 'package:machine_test/src/presentation/core/constants/app_helper.dart';
 import 'package:machine_test/src/presentation/core/constants/app_images.dart';
@@ -8,6 +9,7 @@ import 'package:machine_test/src/presentation/core/widgets/custom_textformfiled.
 import 'package:machine_test/src/presentation/core/widgets/primary_button.dart';
 import 'package:machine_test/src/presentation/view/home/register_screen/widgets/custom_appbar.dart';
 import 'package:machine_test/src/presentation/view/home/register_screen/widgets/custom_register_dropdown.dart';
+import 'package:machine_test/src/presentation/view/home/register_screen/widgets/custom_time.dart';
 import 'package:machine_test/src/presentation/view/home/register_screen/widgets/radio_buttons.dart';
 import 'package:machine_test/src/presentation/view/home/register_screen/widgets/treatments_list_widget.dart';
 
@@ -45,16 +47,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
             SizedBox(
               height: 30.h,
             ),
-            CustomTextFormField(labelText: "Name", hintText: "Enter Your Name", controller: _nameController),
+            CustomTextFormField(
+              labelText: "Name",
+              hintText: "Enter Your Name",
+              controller: _nameController,
+            ),
             space,
-            CustomTextFormField(labelText: "Whatsapp Number", hintText: "Enter Your Whatsapp Number", controller: _whatsappController),
+            CustomTextFormField(
+              labelText: "Whatsapp Number",
+              hintText: "Enter Your Whatsapp Number",
+              controller: _whatsappController,
+              textInputType: TextInputType.phone,
+            ),
             space,
             CustomTextFormField(labelText: "Address", hintText: "Enter Your Address ", controller: _addressController),
             space,
             RegisterDropDown(
               labelText: "Location",
               hintText: "Choose Your Location",
-              items: const ["Kozhikode", "Kannur", "Malapuram"],
+              items: AppStaticData.districtsInKerala,
               selectedItemNotifier: _selectedLocation,
             ),
             space,
@@ -104,7 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 readOnly: true,
                 suffixIcon: Image.asset(AppImages.calanderIcon)),
             space,
-
+            CustomTimeField(hintText: "sdds"),
             PrimaryButton(
               onPressed: () {},
               text: "Save",

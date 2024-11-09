@@ -19,7 +19,8 @@ class PatientTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20.w).copyWith(top: 14.h, bottom: 9.h),
+      margin: EdgeInsets.symmetric(horizontal: 20.w)
+          .copyWith(top: 14.h, bottom: 9.h),
       width: 350.w,
       // height: 1.h,
       decoration: BoxDecoration(
@@ -30,14 +31,18 @@ class PatientTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0.w).copyWith(top: 15.w),
+            padding:
+                EdgeInsets.symmetric(horizontal: 20.0.w).copyWith(top: 15.w),
             child: _buildTitleRow(patientNo, patient.name ?? "n/a"),
           ),
           SizedBox(height: 10.h),
           Padding(
             padding: EdgeInsets.only(left: 20.w, right: 12.w),
             child: _buildText(
-              patient.patientdetailsSet?.map((details) => details.treatmentName).join(', ') ?? '',
+              patient.patientdetailsSet
+                      ?.map((details) => details.treatmentName)
+                      .join(', ') ??
+                  '',
               color: const Color(0xFF006837),
               fontSize: 16.sp,
               fontWeight: FontWeight.w300,
@@ -124,7 +129,8 @@ class PatientTile extends StatelessWidget {
     );
   }
 
-  Widget _buildIconText({required IconData icon, required String text, Color? color}) {
+  Widget _buildIconText(
+      {required IconData icon, required String text, Color? color}) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [

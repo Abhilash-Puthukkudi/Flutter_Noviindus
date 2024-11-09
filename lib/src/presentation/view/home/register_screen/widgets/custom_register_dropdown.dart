@@ -79,7 +79,8 @@ class _RegisterDropDownState extends State<RegisterDropDown> {
                       Icons.keyboard_arrow_down,
                       color: AppColors.secondaryColor,
                     ),
-                    items: widget.items.map<DropdownMenuItem<String>>((String value) {
+                    items: widget.items
+                        .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Text(
@@ -91,7 +92,8 @@ class _RegisterDropDownState extends State<RegisterDropDown> {
                       );
                     }).toList(),
                     onChanged: (String? newValue) {
-                      widget.selectedItemNotifier.value = newValue; // Update the notifier
+                      widget.selectedItemNotifier.value =
+                          newValue; // Update the notifier
                       if (widget.onChanged != null) {
                         widget.onChanged!(newValue);
                       }

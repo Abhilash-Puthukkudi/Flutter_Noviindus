@@ -30,14 +30,16 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
-      listenWhen: (previous, current) => previous.loginStatus != current.loginStatus,
+      listenWhen: (previous, current) =>
+          previous.loginStatus != current.loginStatus,
       listener: (context, state) {
         if (state.loginStatus is StatusSuccess) {
           context.read<HomeBloc>().add(LoadPatientsEvent());
           Navigator.pushNamed(context, RouterConstants.homeRoute);
         } else if (state.loginStatus is StatusFailure) {
           final status = state.loginStatus as StatusFailure;
-          AppHelper.showCustomSnackBar(context, status.errorMessage, AppColors.errorColor);
+          AppHelper.showCustomSnackBar(
+              context, status.errorMessage, AppColors.errorColor);
         }
       },
       child: Scaffold(
@@ -67,7 +69,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0.w).copyWith(top: 30.h),
+                  padding: EdgeInsets.symmetric(horizontal: 20.0.w)
+                      .copyWith(top: 30.h),
                   child: Form(
                     key: _formKey,
                     child: Column(
@@ -113,21 +116,31 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 84.h,
                         ),
                         BlocBuilder<AuthBloc, AuthState>(
-                          buildWhen: (previous, current) => previous.loginStatus != current.loginStatus,
+                          buildWhen: (previous, current) =>
+                              previous.loginStatus != current.loginStatus,
                           builder: (context, state) {
                             return SizedBox(
                               width: 350.w,
                               height: 50.h,
                               child: PrimaryButton(
                                 onPressed: () {
-                                  if (_emailController.text.isNotEmpty && _passwordController.text.isNotEmpty) {
-                                    context.read<AuthBloc>().add(LoginEvent(loginModel: PmLoginModel(password: _passwordController.text, username: _emailController.text)));
+                                  if (_emailController.text.isNotEmpty &&
+                                      _passwordController.text.isNotEmpty) {
+                                    context.read<AuthBloc>().add(LoginEvent(
+                                        loginModel: PmLoginModel(
+                                            password: _passwordController.text,
+                                            username: _emailController.text)));
                                   } else {
-                                    AppHelper.showCustomSnackBar(context, "Please Enter Username and Password", AppColors.errorColor);
+                                    AppHelper.showCustomSnackBar(
+                                        context,
+                                        "Please Enter Username and Password",
+                                        AppColors.errorColor);
                                   }
                                 },
                                 text: "Login",
-                                child: state.loginStatus is StatusLoading ? const Loader() : null,
+                                child: state.loginStatus is StatusLoading
+                                    ? const Loader()
+                                    : null,
                               ),
                             );
                           },

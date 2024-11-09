@@ -40,7 +40,10 @@ class NamedAppBar extends StatelessWidget implements PreferredSizeWidget {
                 Padding(
                   padding: EdgeInsets.only(right: 50.0.w),
                   child: IconButton(
-                    icon: Badge(alignment: const Alignment(0.65, -0.6), child: Image.asset(height: 28.h, width: 28.w, AppImages.bellIcon)),
+                    icon: Badge(
+                        alignment: const Alignment(0.65, -0.6),
+                        child: Image.asset(
+                            height: 28.h, width: 28.w, AppImages.bellIcon)),
                     onPressed: () {},
                   ),
                 ),

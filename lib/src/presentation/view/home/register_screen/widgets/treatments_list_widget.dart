@@ -24,7 +24,8 @@ class TreatmentsListWidget extends StatelessWidget {
         ),
         SizedBox(height: 5.h),
         Container(
-          padding: EdgeInsets.only(left: 20.w, top: 5.h, bottom: 14.h, right: 3.w),
+          padding:
+              EdgeInsets.only(left: 20.w, top: 5.h, bottom: 14.h, right: 3.w),
           width: 350.w,
           // height: 84.h,
           decoration: ShapeDecoration(
@@ -38,7 +39,12 @@ class TreatmentsListWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Flexible(child: Text("Couple Combo package sdsdsdsdsdi..", maxLines: 1, overflow: TextOverflow.ellipsis, style: AppTypography.poppinsMedium.copyWith(fontSize: 18.sp, color: AppColors.black))),
+                  Flexible(
+                      child: Text("Couple Combo package sdsdsdsdsdi..",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppTypography.poppinsMedium.copyWith(
+                              fontSize: 18.sp, color: AppColors.black))),
                   IconButton(
                       onPressed: () {},
                       icon: Image.asset(
@@ -84,7 +90,8 @@ class TreatmentsListWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          style: AppTypography.poppinsRegular.copyWith(fontSize: 16.sp, color: AppColors.primaryColor),
+          style: AppTypography.poppinsRegular
+              .copyWith(fontSize: 16.sp, color: AppColors.primaryColor),
         ),
         SizedBox(
           width: 9.w,
@@ -104,7 +111,8 @@ class TreatmentsListWidget extends StatelessWidget {
           ),
           child: Text(
             count,
-            style: AppTypography.poppinsRegular.copyWith(fontSize: 16.sp, color: AppColors.primaryColor),
+            style: AppTypography.poppinsRegular
+                .copyWith(fontSize: 16.sp, color: AppColors.primaryColor),
           ),
         )
       ],
